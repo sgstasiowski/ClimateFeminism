@@ -1,0 +1,2375 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+			
+			body {
+				font-family: Helvetica;
+				margin: 50px 200px 50px 200px;
+			   	background-color: #E5E5E5;
+				font-weight:lighter;
+			}
+			
+        #map {
+            width: 950pt;
+            height: 600pt;
+            padding: 0;
+            margin: 80;
+        }
+		
+		#author {
+			font-size:9pt;
+		}
+		
+		h1 {
+			font-weight:1000;
+			font-size:30pt;
+		}
+		
+		h2 {
+			font-weight:lighter;
+			font-size:18pt;
+		}
+		
+		p1 {
+			font-size:11pt;
+			
+		}
+		
+		h3 {
+			font-weight:lighter;
+			font-size:16pt;
+		}
+		
+		#quote {
+			margin-left:115px;
+			margin-right:115px;
+		}
+		
+		#rank {
+		   font-size: 9pt;
+		   padding: 15px;
+		}
+		
+		#technical {
+		    width: 1200px;
+		    margin: auto;
+		}
+		#Metrics {
+		    width: 800px;
+		    float: left;
+			margin:20px;
+		}
+		#scores {
+		    width: 400px;
+		    float: left;
+			margin:20px;
+		}
+		
+		#sources {
+			font-size:11pt;
+			color:#AAAAAA;
+		}
+
+		
+        </style>
+        <title></title>
+    </head>
+    <body>
+		
+		<h1> <b>Climate and Feminism: </b> Beyond Paternalistic Population Control
+		</h1>
+		<h2> An evaluation of the current status of equality in women’s health and family planning across the United States.
+		</h2>
+		<hr>
+		<div id="author"><i>By Shelby Stasiowski | December 20, 2019 | GEOG 80 - Digital Worlds | Instructors: Will Payne and Xiaowei Wang</i></div>
+		<br>
+		<h3>Family Planning and Women and Girls' Education</h3>
+		<div id="Intro">
+			<p1>Founded in 2014, Project Drawdown is a global collective of scientists researching climate change and practical, scalable solutions to slowing and eventually reversing it by drawing down greenhouse gas emissions by 2050. In 2017, the organization published a book outlining 100 of these solutions. Among the top ten were Education for Women and Girls (Solution #6) and Family Planning (Solution #7), both of which are feminist in nature and address population control. By empowering women with knowledge and health services, exponential birth rates decline through personal decision-making and rather than top-down paternalist policy, like that of China’s <a href="https://www.arts.ubc.ca/what-chinas-two-child-policy-means-for-womens-rights/">One Child Policy</a> enacted between 1980 and 2015. While the climate change mitigation discourse is dominated by technological solutions, like renewable energies, electric cars, smart cities, and sustainable products, social solutions are often cast aside or seen as less impactful at reducing the amount of greenhouse gases in the atmosphere. Women’s health/education and family planning are influential climate change mitigation strategies that are applicable to every country and community across the world.
+
+While population control is most commonly discussed with regards to <a href="https://www.un.org/en/development/desa/population/publications/pdf/popfacts/popfacts_2010-5.pdf">developing countries</a> where widespread access to quality and gender inequities are considered more rampant, the following quote from Project Drawdown’s Solution #7 summary pointed out a fact that is commonly overlooked:
+<br>
+<br>
+<div id="quote">“225 million women in lower-income countries say they want the ability to choose whether and when to become pregnant but lack the necessary access to contraception. The need persists in some high-income countries as well, including the United States where 45 percent of pregnancies are unintended. Currently, the world faces a $5.3 billion funding shortfall for providing the access to reproductive healthcare that women say they want to have.” <a href="https://www.drawdown.org/solutions/women-and-girls/family-planning">Project Drawdown</a></div>
+<br>
+Despite the US’s status as an affluent world power, close to half of pregnancies are unintended, suggesting a lack of adequate access to family planning services and/or sex/general education. As a country with one of the world’s highest greenhouse gas emissions per capita, one could argue that we cannot “afford” unintended pregnancies and perhaps we must we do more work at home before judging or paternalizing more vulnerable countries. The following map investigates the status of equality in women’s health availability and education in the United States. While the following map does not evaluate the condition of the US over time, it evaluates the condition of the US over space, attempting to answer where in the US is family planning and girls’ education lacking in order to reveal priorities for resource allocation if the US or UN were to enact a family planning/girls education policy for population control. 
+<br>
+<br>
+While the level of equality varies between urban and rural areas with smaller resolution, the purpose of this study is to identify large scale inequalities across the country to serve as a general characterization and starting point for more detailed investigation. Furthermore, while the United States population growth is considered stable with an average growth rate (1,764.5/1000 women in 2018) below that of the replacement rate (2,100/1000 women), this study is an experimental application of the notion of population control (and equitable societal improvement) through empowerment and education. While such an argument may seem extrapolated and, in some cases, irrelevant for developed countries due to stable population growth, engaging in such an argument is experimental; it is a look into arguing for population control in terms of empowerment rather than paternalistic policy on offspring limitations, which enhances democracy and human rights all the while improving the social and environmental spheres of society.  
+			</p1>
+		</div>
+	    <br>
+		<div id="question">
+		<h3>Where should we prioritize resources to create equitable and comprehensive
+		access to women’s health and family planning services?</h3>
+	</div>
+		<br>
+        <div id="map">
+        </div>
+			<div id="rank"><p4>Rankings: Places each metric in ordinal comparison with that of other states, allowing for a simultaneous comparison of the metric within the context of the country and other metrics within the context of the state. 1 is "First place" and 50 is "Last place" based on the value system explained below.<p4></div>
+				<h3> The Metrics</h3>
+					<div id="classification">
+									<p1>Each map is classified using a quantile classification scheme of seven classes, also known as septiles. While situated in a global context of climate change through per capita carbon dioxide emissions, this study specifically focuses on the extent of United States and the spatial relationship across states. By classifying the data with quantiles, the data is isolated entirely within the context of the enumeration units (states) and allows for relative comparison within each metric and parallel comparison between each metric. Each map is colorized with a single hue (or close to single hue) gradation that symbolizes the nature of the values as greater or lesser. 
+
+				In order to evaluate the the states comprehensively, each septile was weighted with a score-- a high score of 6 represents the most desirable condition and a low score of 0 represents the least desirable condition. Scores were then aggregated for each state based on the score earned at each parameter to create an overall composite score. While each individual feeder map allows for comparison between states within the individual metric, the composite score allows for the evaluation of states’ condition of women’s health and family planning holistically with all of the above parameters together. States with the highest scores are considered most empowered while the states with the lowest scores represent improvement areas relative to the other states. The composite map is symbolized using a divergent color scheme to emphasize the scores as diverging in a positive or negative direction from the average score in the center. Each feeder map was scored as follows:</p1>
+					</div>
+				
+				<div id="technical">
+						<div id="Metrics">
+				<p1>Unplanned Pregnancies (2014) - Measured as the percentage of all pregnancies identified as unintended or unwanted, this metric reflects the efficacy and availability of birth control and/or pregnancy prevention education.
+								<br>
+								<br>
+								<br>
+				Health Education in Schools (2014) - The percentage of schools (grades 6-12) teaching at least one required health education course aims to evaluate the extent to which health and sex education are available to youth.
+								<br>
+								<br>
+								<br>
+				Density of Women’s Health Clinics (2017) - Calculated by dividing the number of reproductive health clinics (identified by the Guttmacher Institute as abortion-providing facilitites) by the female population aged 18-64 years (a range limited by available census data classes), this metric is a non-distance method of evaluating availability of reproductive health services like contraception or counseling.
+								<br>
+								<br>
+								<br>
+				Teen Pregnancy (2017) - Measured as number of births per 1000 women aged 15-19 years, this metric measures the level and efficacy of health education and availablilty of reproductive services.
+								<br>
+								<br>
+								<br>
+				Total Fertility Rate (2017) - The total fertility rate is the most widely used measure of fertility in demographic study. It is equal to the sum of age-specific fertility rates (number of births per 1000 women in a specific age bracket, like 15-19 years) multiplied by 5, which represents the anticipated level of completed fertility of the female population.  
+								<br>
+								<br>
+								<br>
+				Range of Total Fertility Rate Between White, Black, and Hispanic Women (2017)  - Calculated by subtracting the lowest total fertility rate from the highest total fertility rate between those of white, black, and hispanic female populations, this metric aims to identify racial disparitites in access to reproductive health/education. 
+								<br>
+								<br>
+								<br>
+				Women’s Education (2017) - Measured with a highest educational attainment metric, the percent of female population with at least some college experience evaluates a higher level of female empowerment beyond high school because the women move beyond guarenteed public education yet is not as exclusionary as a Bachelor degree metric.
+									</p1>
+								</div>
+								
+									<div id="score">
+										<p1>
+											<br>
+									Low values considered desireable         
+									<br>[0% - 34% score of 6; 45% - 48% score of 0]
+									<br>
+									<br>
+									<br>
+								
+									High values considered desireable 		 
+									<br>[0% - 18%  score of 0; 45% - 48% score of 0]
+									<br>
+									<br>
+									<br>
+							
+									High values considered desireable 		 
+									<br>[0 - 0.44 score of 0; 2.68 - 6.55 score of 6]
+									<br>
+									<br>
+									<br>
+								<br>
+								<br>
+									Low values considered desireable 		 
+									<br>[0 - 11.5  score of 6; 25.3 - 30.4 score of 0]
+									<br>
+									<br>
+									<br>
+									
+									Low values were considered desireable 	 
+									<br>[0 - 1630  score of 6; 1927 - 2228 score of 0]
+									<br>
+									<br>
+									<br>
+									<br>
+									Low values were considered desireable 	 
+									<br>[0 - 307  score of 0; 1111 - 2722 score of 0]
+									<br>
+									<br>
+									<br>
+								<br>
+									High values were considered desireable	 
+									<br>[0% - 56%  score of 0; 67% - 71% score of 0]
+									</div>
+									<br>
+									<br>
+								</p1>
+									</div>
+									
+							</div>
+							<br>
+				<h3> What the map tells us.</h3>
+				<div id="analysis">
+					<p1>
+						Based on states’ composite scores, the greatest opportunity for improving equality of women’s reproductive health and education arcross the United States occurs in the cluster of lowest scoring states concentrated in the southeast: Texas, Oklahoma, Arkansas, Louisiana, Alabama, Tennessee, Kentucky, and South Carolina. If the United States were to adopt a population control policy reflecting the philosophy of Project Drawdown-- of female empowerment, equality, and well-being-- these states should be prioritized in terms of federal funding and state policy-making. The clustering of these states in a large portion of what is considered the Deep South suggests historical context that enabled these conditions.
+<br>
+<br>
+The most empowered states-- Washington, Utah, Colorado, Vermont, Massachusetts, and New Hampshire-- are generally located at the country’s coasts and may serve a legislative models for the states with lower scores. 
+		<br>
+		<br>
+		 The simplicity of choropleths created in QGIS allows for fast and clear comparisions of data while the layering emphasizes the simultaneity of each metric's impact. The suitability-type analysis represented in the composite map manifests this simultaneity by quantifying how the metrics comprehensively work together to create the condition that most closely exists in the real world. In terms of geographic meaning, I was surprised to find that many geographic stereotypes of the US hold true (the deep south and midwest are less progressive than the coasts) while others are exaggerated in terms of political tendencies and their associated demographics (California and New York are not the leading examples of every progressive issue). Furthermore, the simplicity of elements--just text and the maps-- focus attention on the data at hand as the sole argument rather than images with inherent political messages automatically validating or invalidating the data for some readers.
+ 
+				<br>
+				<br>
+				Reflection:
+				This process was challenging from an argumentative and data feasibility standpoint. Issues surrounding reproductive rights and policy raise deep contentions and a suite of moral/ethical considerations that demand attention. After hours of data acquisition, I realized my data limitations, I had to use data from varying years, which decreases the accuracy of my comprehensive composite score because the metrics become less comparable. Moving forward, I would dive deeper data searches to find temporally aligned data and a more comprehensive evaluation containing more metrics and updated data would improve the efficacy and accuracy of the study. 
+				</p1>
+				</div>
+			    <br>
+				<br>
+						<div id="sources">
+							<p1>Data Sources
+								<br>
+				Unintended Pregnancies: Guttmacher Institute 2017
+				<br>
+				Health Education in Schools: US Dept. of Health and Human Services, CDC School Health Profiles 2014
+				<br>
+				Density of Women’s Health Clinics: Guttmacher Institute 2017 normalized by 2017 ACS 5-year estimate
+				<br>
+				Teen Pregnancy: National Vital Statistics Reports, Vol. 68, No. 1, 2019 
+				<br>
+				Total Fertility Rate: Table 1 National Vital Statistics Reports, Vol. 67, No. 8, 2018
+				<br>
+				Range of Total Fertility Rate: Calculated from Table 1 National Vital Statistics Reports, Vol. 67, No. 8, 2018 
+				<br>
+				Women’s Education: 2017 ACS 5-year Estimate via Social Explorer
+				<br>
+				Projection: (QGIS - Defined by OpenStreetMap) WGS Pseudo-Mercator, NAD83
+							</p1>
+						</div>
+		
+		
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/NumberofWomensHealthClinicsper100000Femalesaged18642017_1.js"></script>
+        <script src="data/Birthsper1000womenaged1519years2018_2.js"></script>
+        <script src="data/TotalFertilityRate2017_3.js"></script>
+        <script src="data/RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4.js"></script>
+        <script src="data/PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5.js"></script>
+        <script src="data/PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6.js"></script>
+        <script src="data/PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7.js"></script>
+        <script src="data/OverallCompositeScoreforWomensReproductiveHealthandEducation_8.js"></script>
+        <script src="data/Rankings_9.js"></script>
+        <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+            highlightLayer.openPopup();
+        }
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:16, minZoom:4, setView:[39.320930, -83.148569]
+        }).setView([39.320930, -83.148569], 4);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        var layer_OpenStreetMap_0 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 4,
+            maxZoom: 16,
+            minNativeZoom: 0,
+            maxNativeZoom: 19
+        });
+        layer_OpenStreetMap_0;
+        map.addLayer(layer_OpenStreetMap_0);
+        function pop_NumberofWomensHealthClinicsper100000Femalesaged18642017_1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STATE_NAME'] !== null ? Autolinker.link(String(feature.properties['STATE_NAME'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DRAWSEQ'] !== null ? Autolinker.link(String(feature.properties['DRAWSEQ'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STATE_FIPS'] !== null ? Autolinker.link(String(feature.properties['STATE_FIPS'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SUB_REGION'] !== null ? Autolinker.link(String(feature.properties['SUB_REGION'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STATE_ABBR'] !== null ? Autolinker.link(String(feature.properties['STATE_ABBR'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__State'] !== null ? Autolinker.link(String(feature.properties['__State'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__n_abortion_facilities_2017'] !== null ? Autolinker.link(String(feature.properties['__n_abortion_facilities_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Female_Pop_18_64'] !== null ? Autolinker.link(String(feature.properties['__Female_Pop_18_64'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__facilities_per_100000_females_18_64 _2017'] !== null ? Autolinker.link(String(feature.properties['__facilities_per_100000_females_18_64 _2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Facility_Score'] !== null ? Autolinker.link(String(feature.properties['__Facility_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Births_per_1000_f_15_19 _2018'] !== null ? Autolinker.link(String(feature.properties['__Births_per_1000_f_15_19 _2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Teen_Score'] !== null ? Autolinker.link(String(feature.properties['__Teen_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Total_Fertility_Rate_2017'] !== null ? Autolinker.link(String(feature.properties['__Total_Fertility_Rate_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Fertility_Score'] !== null ? Autolinker.link(String(feature.properties['__Fertility_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__TFR_white_2017'] !== null ? Autolinker.link(String(feature.properties['__TFR_white_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__TFR_black_2017'] !== null ? Autolinker.link(String(feature.properties['__TFR_black_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__TFR_Hispanic_2017'] !== null ? Autolinker.link(String(feature.properties['__TFR_Hispanic_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Range_Fertility_Race'] !== null ? Autolinker.link(String(feature.properties['__Range_Fertility_Race'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Range_Ethnicity_Score'] !== null ? Autolinker.link(String(feature.properties['__Range_Ethnicity_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__P_f_25older_SomeCollegemore_2017'] !== null ? Autolinker.link(String(feature.properties['__P_f_25older_SomeCollegemore_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Education_Score'] !== null ? Autolinker.link(String(feature.properties['__Education_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__p_pregnancies_ending_in_birth_2014'] !== null ? Autolinker.link(String(feature.properties['__p_pregnancies_ending_in_birth_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__p_pregnancies_wanted_later_or_unwanted_ending_in_abortion_2014'] !== null ? Autolinker.link(String(feature.properties['__p_pregnancies_wanted_later_or_unwanted_ending_in_abortion_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__P_pregnancies_unwanted_ending_in_birth_2014'] !== null ? Autolinker.link(String(feature.properties['__P_pregnancies_unwanted_ending_in_birth_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'] !== null ? Autolinker.link(String(feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Unintended_Score'] !== null ? Autolinker.link(String(feature.properties['__Unintended_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Intended_pregnancies_n_1000_women15_44_2014'] !== null ? Autolinker.link(String(feature.properties['__Intended_pregnancies_n_1000_women15_44_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Schools_one_health_ed_2014'] !== null ? Autolinker.link(String(feature.properties['__Schools_one_health_ed_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__School_Score'] !== null ? Autolinker.link(String(feature.properties['__School_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Pregnancy prevention'] !== null ? Autolinker.link(String(feature.properties['__Pregnancy prevention'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__How to access valid and reliable information, products, and services related to HIV, other STDs, and pregnancy'] !== null ? Autolinker.link(String(feature.properties['__How to access valid and reliable information, products, and services related to HIV, other STDs, and pregnancy'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Birthrate 2018'] !== null ? Autolinker.link(String(feature.properties['__Birthrate 2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__CompositeScore'] !== null ? Autolinker.link(String(feature.properties['__CompositeScore'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__State_Abbvr_1'] !== null ? Autolinker.link(String(feature.properties['__State_Abbvr_1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Clinic Density Ranking'] !== null ? Autolinker.link(String(feature.properties['__Clinic Density Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Teen Pregnancy Ranking'] !== null ? Autolinker.link(String(feature.properties['__Teen Pregnancy Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Ethnic Disparity Ranking'] !== null ? Autolinker.link(String(feature.properties['__Ethnic Disparity Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Female Education Ranking'] !== null ? Autolinker.link(String(feature.properties['__Female Education Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Unintended Pregnancy Ranking'] !== null ? Autolinker.link(String(feature.properties['__Unintended Pregnancy Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Total Fertility Ranking'] !== null ? Autolinker.link(String(feature.properties['__Total Fertility Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Health Education in Schools Ranking'] !== null ? Autolinker.link(String(feature.properties['__Health Education in Schools Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Composite Score Ranking'] !== null ? Autolinker.link(String(feature.properties['__Composite Score Ranking'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_NumberofWomensHealthClinicsper100000Femalesaged18642017_1_0(feature) {
+            if (feature.properties['__facilities_per_100000_females_18_64 _2017'] >= 0.000000 && feature.properties['__facilities_per_100000_females_18_64 _2017'] <= 0.440000 ) {
+                return {
+                pane: 'pane_NumberofWomensHealthClinicsper100000Femalesaged18642017_1',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,245,235,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__facilities_per_100000_females_18_64 _2017'] >= 0.440000 && feature.properties['__facilities_per_100000_females_18_64 _2017'] <= 0.540000 ) {
+                return {
+                pane: 'pane_NumberofWomensHealthClinicsper100000Femalesaged18642017_1',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(254,224,194,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__facilities_per_100000_females_18_64 _2017'] >= 0.540000 && feature.properties['__facilities_per_100000_females_18_64 _2017'] <= 0.870000 ) {
+                return {
+                pane: 'pane_NumberofWomensHealthClinicsper100000Femalesaged18642017_1',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,189,131,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__facilities_per_100000_females_18_64 _2017'] >= 0.870000 && feature.properties['__facilities_per_100000_females_18_64 _2017'] <= 1.150000 ) {
+                return {
+                pane: 'pane_NumberofWomensHealthClinicsper100000Femalesaged18642017_1',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,146,67,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__facilities_per_100000_females_18_64 _2017'] >= 1.150000 && feature.properties['__facilities_per_100000_females_18_64 _2017'] <= 1.870000 ) {
+                return {
+                pane: 'pane_NumberofWomensHealthClinicsper100000Femalesaged18642017_1',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(238,101,16,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__facilities_per_100000_females_18_64 _2017'] >= 1.870000 && feature.properties['__facilities_per_100000_females_18_64 _2017'] <= 2.680000 ) {
+                return {
+                pane: 'pane_NumberofWomensHealthClinicsper100000Femalesaged18642017_1',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(195,64,1,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__facilities_per_100000_females_18_64 _2017'] >= 2.680000 && feature.properties['__facilities_per_100000_females_18_64 _2017'] <= 6.550000 ) {
+                return {
+                pane: 'pane_NumberofWomensHealthClinicsper100000Femalesaged18642017_1',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(127,39,4,1.0)',
+                interactive: false,
+            }
+            }
+        }
+        map.createPane('pane_NumberofWomensHealthClinicsper100000Femalesaged18642017_1');
+        map.getPane('pane_NumberofWomensHealthClinicsper100000Femalesaged18642017_1').style.zIndex = 401;
+        map.getPane('pane_NumberofWomensHealthClinicsper100000Femalesaged18642017_1').style['mix-blend-mode'] = 'normal';
+        var layer_NumberofWomensHealthClinicsper100000Femalesaged18642017_1 = new L.geoJson(json_NumberofWomensHealthClinicsper100000Femalesaged18642017_1, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_NumberofWomensHealthClinicsper100000Femalesaged18642017_1',
+            layerName: 'layer_NumberofWomensHealthClinicsper100000Femalesaged18642017_1',
+            pane: 'pane_NumberofWomensHealthClinicsper100000Femalesaged18642017_1',
+            onEachFeature: pop_NumberofWomensHealthClinicsper100000Femalesaged18642017_1,
+            style: style_NumberofWomensHealthClinicsper100000Femalesaged18642017_1_0,
+        });
+        bounds_group.addLayer(layer_NumberofWomensHealthClinicsper100000Femalesaged18642017_1);
+        map.addLayer(layer_NumberofWomensHealthClinicsper100000Femalesaged18642017_1);
+        function pop_Birthsper1000womenaged1519years2018_2(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STATE_NAME'] !== null ? Autolinker.link(String(feature.properties['STATE_NAME'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DRAWSEQ'] !== null ? Autolinker.link(String(feature.properties['DRAWSEQ'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STATE_FIPS'] !== null ? Autolinker.link(String(feature.properties['STATE_FIPS'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SUB_REGION'] !== null ? Autolinker.link(String(feature.properties['SUB_REGION'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STATE_ABBR'] !== null ? Autolinker.link(String(feature.properties['STATE_ABBR'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__State'] !== null ? Autolinker.link(String(feature.properties['__State'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__n_abortion_facilities_2017'] !== null ? Autolinker.link(String(feature.properties['__n_abortion_facilities_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Female_Pop_18_64'] !== null ? Autolinker.link(String(feature.properties['__Female_Pop_18_64'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__facilities_per_100000_females_18_64 _2017'] !== null ? Autolinker.link(String(feature.properties['__facilities_per_100000_females_18_64 _2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Facility_Score'] !== null ? Autolinker.link(String(feature.properties['__Facility_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Births_per_1000_f_15_19 _2018'] !== null ? Autolinker.link(String(feature.properties['__Births_per_1000_f_15_19 _2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Teen_Score'] !== null ? Autolinker.link(String(feature.properties['__Teen_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Total_Fertility_Rate_2017'] !== null ? Autolinker.link(String(feature.properties['__Total_Fertility_Rate_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Fertility_Score'] !== null ? Autolinker.link(String(feature.properties['__Fertility_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__TFR_white_2017'] !== null ? Autolinker.link(String(feature.properties['__TFR_white_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__TFR_black_2017'] !== null ? Autolinker.link(String(feature.properties['__TFR_black_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__TFR_Hispanic_2017'] !== null ? Autolinker.link(String(feature.properties['__TFR_Hispanic_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Range_Fertility_Race'] !== null ? Autolinker.link(String(feature.properties['__Range_Fertility_Race'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Range_Ethnicity_Score'] !== null ? Autolinker.link(String(feature.properties['__Range_Ethnicity_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__P_f_25older_SomeCollegemore_2017'] !== null ? Autolinker.link(String(feature.properties['__P_f_25older_SomeCollegemore_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Education_Score'] !== null ? Autolinker.link(String(feature.properties['__Education_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__p_pregnancies_ending_in_birth_2014'] !== null ? Autolinker.link(String(feature.properties['__p_pregnancies_ending_in_birth_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__p_pregnancies_wanted_later_or_unwanted_ending_in_abortion_2014'] !== null ? Autolinker.link(String(feature.properties['__p_pregnancies_wanted_later_or_unwanted_ending_in_abortion_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__P_pregnancies_unwanted_ending_in_birth_2014'] !== null ? Autolinker.link(String(feature.properties['__P_pregnancies_unwanted_ending_in_birth_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'] !== null ? Autolinker.link(String(feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Unintended_Score'] !== null ? Autolinker.link(String(feature.properties['__Unintended_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Intended_pregnancies_n_1000_women15_44_2014'] !== null ? Autolinker.link(String(feature.properties['__Intended_pregnancies_n_1000_women15_44_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Schools_one_health_ed_2014'] !== null ? Autolinker.link(String(feature.properties['__Schools_one_health_ed_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__School_Score'] !== null ? Autolinker.link(String(feature.properties['__School_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Pregnancy prevention'] !== null ? Autolinker.link(String(feature.properties['__Pregnancy prevention'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__How to access valid and reliable information, products, and services related to HIV, other STDs, and pregnancy'] !== null ? Autolinker.link(String(feature.properties['__How to access valid and reliable information, products, and services related to HIV, other STDs, and pregnancy'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Birthrate 2018'] !== null ? Autolinker.link(String(feature.properties['__Birthrate 2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__CompositeScore'] !== null ? Autolinker.link(String(feature.properties['__CompositeScore'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__State_Abbvr_1'] !== null ? Autolinker.link(String(feature.properties['__State_Abbvr_1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Clinic Density Ranking'] !== null ? Autolinker.link(String(feature.properties['__Clinic Density Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Teen Pregnancy Ranking'] !== null ? Autolinker.link(String(feature.properties['__Teen Pregnancy Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Ethnic Disparity Ranking'] !== null ? Autolinker.link(String(feature.properties['__Ethnic Disparity Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Female Education Ranking'] !== null ? Autolinker.link(String(feature.properties['__Female Education Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Unintended Pregnancy Ranking'] !== null ? Autolinker.link(String(feature.properties['__Unintended Pregnancy Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Total Fertility Ranking'] !== null ? Autolinker.link(String(feature.properties['__Total Fertility Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Health Education in Schools Ranking'] !== null ? Autolinker.link(String(feature.properties['__Health Education in Schools Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Composite Score Ranking'] !== null ? Autolinker.link(String(feature.properties['__Composite Score Ranking'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Birthsper1000womenaged1519years2018_2_0(feature) {
+            if (feature.properties['__Births_per_1000_f_15_19 _2018'] >= 0.000000 && feature.properties['__Births_per_1000_f_15_19 _2018'] <= 11.500000 ) {
+                return {
+                pane: 'pane_Birthsper1000womenaged1519years2018_2',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(237,248,251,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Births_per_1000_f_15_19 _2018'] >= 11.500000 && feature.properties['__Births_per_1000_f_15_19 _2018'] <= 14.100000 ) {
+                return {
+                pane: 'pane_Birthsper1000womenaged1519years2018_2',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(199,220,235,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Births_per_1000_f_15_19 _2018'] >= 14.100000 && feature.properties['__Births_per_1000_f_15_19 _2018'] <= 16.000000 ) {
+                return {
+                pane: 'pane_Birthsper1000womenaged1519years2018_2',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,187,218,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Births_per_1000_f_15_19 _2018'] >= 16.000000 && feature.properties['__Births_per_1000_f_15_19 _2018'] <= 18.700000 ) {
+                return {
+                pane: 'pane_Birthsper1000womenaged1519years2018_2',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(140,150,198,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Births_per_1000_f_15_19 _2018'] >= 18.700000 && feature.properties['__Births_per_1000_f_15_19 _2018'] <= 20.600000 ) {
+                return {
+                pane: 'pane_Birthsper1000womenaged1519years2018_2',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(137,107,178,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Births_per_1000_f_15_19 _2018'] >= 20.600000 && feature.properties['__Births_per_1000_f_15_19 _2018'] <= 25.300000 ) {
+                return {
+                pane: 'pane_Birthsper1000womenaged1519years2018_2',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(134,62,153,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Births_per_1000_f_15_19 _2018'] >= 25.300000 && feature.properties['__Births_per_1000_f_15_19 _2018'] <= 30.400000 ) {
+                return {
+                pane: 'pane_Birthsper1000womenaged1519years2018_2',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(129,15,124,1.0)',
+                interactive: false,
+            }
+            }
+        }
+        map.createPane('pane_Birthsper1000womenaged1519years2018_2');
+        map.getPane('pane_Birthsper1000womenaged1519years2018_2').style.zIndex = 402;
+        map.getPane('pane_Birthsper1000womenaged1519years2018_2').style['mix-blend-mode'] = 'normal';
+        var layer_Birthsper1000womenaged1519years2018_2 = new L.geoJson(json_Birthsper1000womenaged1519years2018_2, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_Birthsper1000womenaged1519years2018_2',
+            layerName: 'layer_Birthsper1000womenaged1519years2018_2',
+            pane: 'pane_Birthsper1000womenaged1519years2018_2',
+            onEachFeature: pop_Birthsper1000womenaged1519years2018_2,
+            style: style_Birthsper1000womenaged1519years2018_2_0,
+        });
+        bounds_group.addLayer(layer_Birthsper1000womenaged1519years2018_2);
+        map.addLayer(layer_Birthsper1000womenaged1519years2018_2);
+        function pop_TotalFertilityRate2017_3(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STATE_NAME'] !== null ? Autolinker.link(String(feature.properties['STATE_NAME'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DRAWSEQ'] !== null ? Autolinker.link(String(feature.properties['DRAWSEQ'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STATE_FIPS'] !== null ? Autolinker.link(String(feature.properties['STATE_FIPS'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SUB_REGION'] !== null ? Autolinker.link(String(feature.properties['SUB_REGION'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STATE_ABBR'] !== null ? Autolinker.link(String(feature.properties['STATE_ABBR'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__State'] !== null ? Autolinker.link(String(feature.properties['__State'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__n_abortion_facilities_2017'] !== null ? Autolinker.link(String(feature.properties['__n_abortion_facilities_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Female_Pop_18_64'] !== null ? Autolinker.link(String(feature.properties['__Female_Pop_18_64'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__facilities_per_100000_females_18_64 _2017'] !== null ? Autolinker.link(String(feature.properties['__facilities_per_100000_females_18_64 _2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Facility_Score'] !== null ? Autolinker.link(String(feature.properties['__Facility_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Births_per_1000_f_15_19 _2018'] !== null ? Autolinker.link(String(feature.properties['__Births_per_1000_f_15_19 _2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Teen_Score'] !== null ? Autolinker.link(String(feature.properties['__Teen_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Total_Fertility_Rate_2017'] !== null ? Autolinker.link(String(feature.properties['__Total_Fertility_Rate_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Fertility_Score'] !== null ? Autolinker.link(String(feature.properties['__Fertility_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__TFR_white_2017'] !== null ? Autolinker.link(String(feature.properties['__TFR_white_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__TFR_black_2017'] !== null ? Autolinker.link(String(feature.properties['__TFR_black_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__TFR_Hispanic_2017'] !== null ? Autolinker.link(String(feature.properties['__TFR_Hispanic_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Range_Fertility_Race'] !== null ? Autolinker.link(String(feature.properties['__Range_Fertility_Race'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Range_Ethnicity_Score'] !== null ? Autolinker.link(String(feature.properties['__Range_Ethnicity_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__P_f_25older_SomeCollegemore_2017'] !== null ? Autolinker.link(String(feature.properties['__P_f_25older_SomeCollegemore_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Education_Score'] !== null ? Autolinker.link(String(feature.properties['__Education_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__p_pregnancies_ending_in_birth_2014'] !== null ? Autolinker.link(String(feature.properties['__p_pregnancies_ending_in_birth_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__p_pregnancies_wanted_later_or_unwanted_ending_in_abortion_2014'] !== null ? Autolinker.link(String(feature.properties['__p_pregnancies_wanted_later_or_unwanted_ending_in_abortion_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__P_pregnancies_unwanted_ending_in_birth_2014'] !== null ? Autolinker.link(String(feature.properties['__P_pregnancies_unwanted_ending_in_birth_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'] !== null ? Autolinker.link(String(feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Unintended_Score'] !== null ? Autolinker.link(String(feature.properties['__Unintended_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Intended_pregnancies_n_1000_women15_44_2014'] !== null ? Autolinker.link(String(feature.properties['__Intended_pregnancies_n_1000_women15_44_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Schools_one_health_ed_2014'] !== null ? Autolinker.link(String(feature.properties['__Schools_one_health_ed_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__School_Score'] !== null ? Autolinker.link(String(feature.properties['__School_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Pregnancy prevention'] !== null ? Autolinker.link(String(feature.properties['__Pregnancy prevention'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__How to access valid and reliable information, products, and services related to HIV, other STDs, and pregnancy'] !== null ? Autolinker.link(String(feature.properties['__How to access valid and reliable information, products, and services related to HIV, other STDs, and pregnancy'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Birthrate 2018'] !== null ? Autolinker.link(String(feature.properties['__Birthrate 2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__CompositeScore'] !== null ? Autolinker.link(String(feature.properties['__CompositeScore'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__State_Abbvr_1'] !== null ? Autolinker.link(String(feature.properties['__State_Abbvr_1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Clinic Density Ranking'] !== null ? Autolinker.link(String(feature.properties['__Clinic Density Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Teen Pregnancy Ranking'] !== null ? Autolinker.link(String(feature.properties['__Teen Pregnancy Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Ethnic Disparity Ranking'] !== null ? Autolinker.link(String(feature.properties['__Ethnic Disparity Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Female Education Ranking'] !== null ? Autolinker.link(String(feature.properties['__Female Education Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Unintended Pregnancy Ranking'] !== null ? Autolinker.link(String(feature.properties['__Unintended Pregnancy Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Total Fertility Ranking'] !== null ? Autolinker.link(String(feature.properties['__Total Fertility Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Health Education in Schools Ranking'] !== null ? Autolinker.link(String(feature.properties['__Health Education in Schools Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Composite Score Ranking'] !== null ? Autolinker.link(String(feature.properties['__Composite Score Ranking'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_TotalFertilityRate2017_3_0(feature) {
+            if (feature.properties['__Total_Fertility_Rate_2017'] >= 0.000000 && feature.properties['__Total_Fertility_Rate_2017'] <= 1630.000000 ) {
+                return {
+                pane: 'pane_TotalFertilityRate2017_3',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,245,240,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Total_Fertility_Rate_2017'] >= 1630.000000 && feature.properties['__Total_Fertility_Rate_2017'] <= 1731.000000 ) {
+                return {
+                pane: 'pane_TotalFertilityRate2017_3',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(254,214,196,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Total_Fertility_Rate_2017'] >= 1731.000000 && feature.properties['__Total_Fertility_Rate_2017'] <= 1761.500000 ) {
+                return {
+                pane: 'pane_TotalFertilityRate2017_3',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(252,164,135,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Total_Fertility_Rate_2017'] >= 1761.500000 && feature.properties['__Total_Fertility_Rate_2017'] <= 1803.500000 ) {
+                return {
+                pane: 'pane_TotalFertilityRate2017_3',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(252,112,80,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Total_Fertility_Rate_2017'] >= 1803.500000 && feature.properties['__Total_Fertility_Rate_2017'] <= 1872.500000 ) {
+                return {
+                pane: 'pane_TotalFertilityRate2017_3',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(235,54,42,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Total_Fertility_Rate_2017'] >= 1872.500000 && feature.properties['__Total_Fertility_Rate_2017'] <= 1926.500000 ) {
+                return {
+                pane: 'pane_TotalFertilityRate2017_3',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(186,20,25,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Total_Fertility_Rate_2017'] >= 1926.500000 && feature.properties['__Total_Fertility_Rate_2017'] <= 2227.500000 ) {
+                return {
+                pane: 'pane_TotalFertilityRate2017_3',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(103,0,13,1.0)',
+                interactive: false,
+            }
+            }
+        }
+        map.createPane('pane_TotalFertilityRate2017_3');
+        map.getPane('pane_TotalFertilityRate2017_3').style.zIndex = 403;
+        map.getPane('pane_TotalFertilityRate2017_3').style['mix-blend-mode'] = 'normal';
+        var layer_TotalFertilityRate2017_3 = new L.geoJson(json_TotalFertilityRate2017_3, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_TotalFertilityRate2017_3',
+            layerName: 'layer_TotalFertilityRate2017_3',
+            pane: 'pane_TotalFertilityRate2017_3',
+            onEachFeature: pop_TotalFertilityRate2017_3,
+            style: style_TotalFertilityRate2017_3_0,
+        });
+        bounds_group.addLayer(layer_TotalFertilityRate2017_3);
+        map.addLayer(layer_TotalFertilityRate2017_3);
+        function pop_RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STATE_NAME'] !== null ? Autolinker.link(String(feature.properties['STATE_NAME'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DRAWSEQ'] !== null ? Autolinker.link(String(feature.properties['DRAWSEQ'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STATE_FIPS'] !== null ? Autolinker.link(String(feature.properties['STATE_FIPS'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SUB_REGION'] !== null ? Autolinker.link(String(feature.properties['SUB_REGION'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STATE_ABBR'] !== null ? Autolinker.link(String(feature.properties['STATE_ABBR'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__State'] !== null ? Autolinker.link(String(feature.properties['__State'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__n_abortion_facilities_2017'] !== null ? Autolinker.link(String(feature.properties['__n_abortion_facilities_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Female_Pop_18_64'] !== null ? Autolinker.link(String(feature.properties['__Female_Pop_18_64'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__facilities_per_100000_females_18_64 _2017'] !== null ? Autolinker.link(String(feature.properties['__facilities_per_100000_females_18_64 _2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Facility_Score'] !== null ? Autolinker.link(String(feature.properties['__Facility_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Births_per_1000_f_15_19 _2018'] !== null ? Autolinker.link(String(feature.properties['__Births_per_1000_f_15_19 _2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Teen_Score'] !== null ? Autolinker.link(String(feature.properties['__Teen_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Total_Fertility_Rate_2017'] !== null ? Autolinker.link(String(feature.properties['__Total_Fertility_Rate_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Fertility_Score'] !== null ? Autolinker.link(String(feature.properties['__Fertility_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__TFR_white_2017'] !== null ? Autolinker.link(String(feature.properties['__TFR_white_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__TFR_black_2017'] !== null ? Autolinker.link(String(feature.properties['__TFR_black_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__TFR_Hispanic_2017'] !== null ? Autolinker.link(String(feature.properties['__TFR_Hispanic_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Range_Fertility_Race'] !== null ? Autolinker.link(String(feature.properties['__Range_Fertility_Race'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Range_Ethnicity_Score'] !== null ? Autolinker.link(String(feature.properties['__Range_Ethnicity_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__P_f_25older_SomeCollegemore_2017'] !== null ? Autolinker.link(String(feature.properties['__P_f_25older_SomeCollegemore_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Education_Score'] !== null ? Autolinker.link(String(feature.properties['__Education_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__p_pregnancies_ending_in_birth_2014'] !== null ? Autolinker.link(String(feature.properties['__p_pregnancies_ending_in_birth_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__p_pregnancies_wanted_later_or_unwanted_ending_in_abortion_2014'] !== null ? Autolinker.link(String(feature.properties['__p_pregnancies_wanted_later_or_unwanted_ending_in_abortion_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__P_pregnancies_unwanted_ending_in_birth_2014'] !== null ? Autolinker.link(String(feature.properties['__P_pregnancies_unwanted_ending_in_birth_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'] !== null ? Autolinker.link(String(feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Unintended_Score'] !== null ? Autolinker.link(String(feature.properties['__Unintended_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Intended_pregnancies_n_1000_women15_44_2014'] !== null ? Autolinker.link(String(feature.properties['__Intended_pregnancies_n_1000_women15_44_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Schools_one_health_ed_2014'] !== null ? Autolinker.link(String(feature.properties['__Schools_one_health_ed_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__School_Score'] !== null ? Autolinker.link(String(feature.properties['__School_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Pregnancy prevention'] !== null ? Autolinker.link(String(feature.properties['__Pregnancy prevention'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__How to access valid and reliable information, products, and services related to HIV, other STDs, and pregnancy'] !== null ? Autolinker.link(String(feature.properties['__How to access valid and reliable information, products, and services related to HIV, other STDs, and pregnancy'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Birthrate 2018'] !== null ? Autolinker.link(String(feature.properties['__Birthrate 2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__CompositeScore'] !== null ? Autolinker.link(String(feature.properties['__CompositeScore'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__State_Abbvr_1'] !== null ? Autolinker.link(String(feature.properties['__State_Abbvr_1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Clinic Density Ranking'] !== null ? Autolinker.link(String(feature.properties['__Clinic Density Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Teen Pregnancy Ranking'] !== null ? Autolinker.link(String(feature.properties['__Teen Pregnancy Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Ethnic Disparity Ranking'] !== null ? Autolinker.link(String(feature.properties['__Ethnic Disparity Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Female Education Ranking'] !== null ? Autolinker.link(String(feature.properties['__Female Education Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Unintended Pregnancy Ranking'] !== null ? Autolinker.link(String(feature.properties['__Unintended Pregnancy Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Total Fertility Ranking'] !== null ? Autolinker.link(String(feature.properties['__Total Fertility Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Health Education in Schools Ranking'] !== null ? Autolinker.link(String(feature.properties['__Health Education in Schools Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Composite Score Ranking'] !== null ? Autolinker.link(String(feature.properties['__Composite Score Ranking'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4_0(feature) {
+            if (feature.properties['__Range_Fertility_Race'] >= 0.000000 && feature.properties['__Range_Fertility_Race'] <= 307.000000 ) {
+                return {
+                pane: 'pane_RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,252,245,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Range_Fertility_Race'] >= 307.000000 && feature.properties['__Range_Fertility_Race'] <= 399.500000 ) {
+                return {
+                pane: 'pane_RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(221,242,215,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Range_Fertility_Race'] >= 399.500000 && feature.properties['__Range_Fertility_Race'] <= 525.500000 ) {
+                return {
+                pane: 'pane_RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(178,224,171,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Range_Fertility_Race'] >= 525.500000 && feature.properties['__Range_Fertility_Race'] <= 645.500000 ) {
+                return {
+                pane: 'pane_RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(123,200,124,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Range_Fertility_Race'] >= 645.500000 && feature.properties['__Range_Fertility_Race'] <= 912.000000 ) {
+                return {
+                pane: 'pane_RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(61,167,90,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Range_Fertility_Race'] >= 912.000000 && feature.properties['__Range_Fertility_Race'] <= 1111.000000 ) {
+                return {
+                pane: 'pane_RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(19,126,58,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Range_Fertility_Race'] >= 1111.000000 && feature.properties['__Range_Fertility_Race'] <= 2722.000000 ) {
+                return {
+                pane: 'pane_RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,68,27,1.0)',
+                interactive: false,
+            }
+            }
+        }
+        map.createPane('pane_RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4');
+        map.getPane('pane_RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4').style.zIndex = 404;
+        map.getPane('pane_RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4').style['mix-blend-mode'] = 'normal';
+        var layer_RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4 = new L.geoJson(json_RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4',
+            layerName: 'layer_RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4',
+            pane: 'pane_RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4',
+            onEachFeature: pop_RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4,
+            style: style_RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4_0,
+        });
+        bounds_group.addLayer(layer_RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4);
+        map.addLayer(layer_RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4);
+        function pop_PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STATE_NAME'] !== null ? Autolinker.link(String(feature.properties['STATE_NAME'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DRAWSEQ'] !== null ? Autolinker.link(String(feature.properties['DRAWSEQ'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STATE_FIPS'] !== null ? Autolinker.link(String(feature.properties['STATE_FIPS'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SUB_REGION'] !== null ? Autolinker.link(String(feature.properties['SUB_REGION'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STATE_ABBR'] !== null ? Autolinker.link(String(feature.properties['STATE_ABBR'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__State'] !== null ? Autolinker.link(String(feature.properties['__State'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__n_abortion_facilities_2017'] !== null ? Autolinker.link(String(feature.properties['__n_abortion_facilities_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Female_Pop_18_64'] !== null ? Autolinker.link(String(feature.properties['__Female_Pop_18_64'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__facilities_per_100000_females_18_64 _2017'] !== null ? Autolinker.link(String(feature.properties['__facilities_per_100000_females_18_64 _2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Facility_Score'] !== null ? Autolinker.link(String(feature.properties['__Facility_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Births_per_1000_f_15_19 _2018'] !== null ? Autolinker.link(String(feature.properties['__Births_per_1000_f_15_19 _2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Teen_Score'] !== null ? Autolinker.link(String(feature.properties['__Teen_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Total_Fertility_Rate_2017'] !== null ? Autolinker.link(String(feature.properties['__Total_Fertility_Rate_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Fertility_Score'] !== null ? Autolinker.link(String(feature.properties['__Fertility_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__TFR_white_2017'] !== null ? Autolinker.link(String(feature.properties['__TFR_white_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__TFR_black_2017'] !== null ? Autolinker.link(String(feature.properties['__TFR_black_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__TFR_Hispanic_2017'] !== null ? Autolinker.link(String(feature.properties['__TFR_Hispanic_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Range_Fertility_Race'] !== null ? Autolinker.link(String(feature.properties['__Range_Fertility_Race'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Range_Ethnicity_Score'] !== null ? Autolinker.link(String(feature.properties['__Range_Ethnicity_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__P_f_25older_SomeCollegemore_2017'] !== null ? Autolinker.link(String(feature.properties['__P_f_25older_SomeCollegemore_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Education_Score'] !== null ? Autolinker.link(String(feature.properties['__Education_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__p_pregnancies_ending_in_birth_2014'] !== null ? Autolinker.link(String(feature.properties['__p_pregnancies_ending_in_birth_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__p_pregnancies_wanted_later_or_unwanted_ending_in_abortion_2014'] !== null ? Autolinker.link(String(feature.properties['__p_pregnancies_wanted_later_or_unwanted_ending_in_abortion_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__P_pregnancies_unwanted_ending_in_birth_2014'] !== null ? Autolinker.link(String(feature.properties['__P_pregnancies_unwanted_ending_in_birth_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'] !== null ? Autolinker.link(String(feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Unintended_Score'] !== null ? Autolinker.link(String(feature.properties['__Unintended_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Intended_pregnancies_n_1000_women15_44_2014'] !== null ? Autolinker.link(String(feature.properties['__Intended_pregnancies_n_1000_women15_44_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Schools_one_health_ed_2014'] !== null ? Autolinker.link(String(feature.properties['__Schools_one_health_ed_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__School_Score'] !== null ? Autolinker.link(String(feature.properties['__School_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Pregnancy prevention'] !== null ? Autolinker.link(String(feature.properties['__Pregnancy prevention'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__How to access valid and reliable information, products, and services related to HIV, other STDs, and pregnancy'] !== null ? Autolinker.link(String(feature.properties['__How to access valid and reliable information, products, and services related to HIV, other STDs, and pregnancy'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Birthrate 2018'] !== null ? Autolinker.link(String(feature.properties['__Birthrate 2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__CompositeScore'] !== null ? Autolinker.link(String(feature.properties['__CompositeScore'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__State_Abbvr_1'] !== null ? Autolinker.link(String(feature.properties['__State_Abbvr_1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Clinic Density Ranking'] !== null ? Autolinker.link(String(feature.properties['__Clinic Density Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Teen Pregnancy Ranking'] !== null ? Autolinker.link(String(feature.properties['__Teen Pregnancy Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Ethnic Disparity Ranking'] !== null ? Autolinker.link(String(feature.properties['__Ethnic Disparity Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Female Education Ranking'] !== null ? Autolinker.link(String(feature.properties['__Female Education Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Unintended Pregnancy Ranking'] !== null ? Autolinker.link(String(feature.properties['__Unintended Pregnancy Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Total Fertility Ranking'] !== null ? Autolinker.link(String(feature.properties['__Total Fertility Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Health Education in Schools Ranking'] !== null ? Autolinker.link(String(feature.properties['__Health Education in Schools Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Composite Score Ranking'] !== null ? Autolinker.link(String(feature.properties['__Composite Score Ranking'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5_0(feature) {
+            if (feature.properties['__P_f_25older_SomeCollegemore_2017'] >= 0.000000 && feature.properties['__P_f_25older_SomeCollegemore_2017'] <= 56.300000 ) {
+                return {
+                pane: 'pane_PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(252,251,253,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__P_f_25older_SomeCollegemore_2017'] >= 56.300000 && feature.properties['__P_f_25older_SomeCollegemore_2017'] <= 59.500000 ) {
+                return {
+                pane: 'pane_PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(233,232,243,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__P_f_25older_SomeCollegemore_2017'] >= 59.500000 && feature.properties['__P_f_25older_SomeCollegemore_2017'] <= 61.700000 ) {
+                return {
+                pane: 'pane_PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(201,202,227,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__P_f_25older_SomeCollegemore_2017'] >= 61.700000 && feature.properties['__P_f_25older_SomeCollegemore_2017'] <= 63.400000 ) {
+                return {
+                pane: 'pane_PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(163,160,203,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__P_f_25older_SomeCollegemore_2017'] >= 63.400000 && feature.properties['__P_f_25older_SomeCollegemore_2017'] <= 66.100000 ) {
+                return {
+                pane: 'pane_PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(124,118,182,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__P_f_25older_SomeCollegemore_2017'] >= 66.100000 && feature.properties['__P_f_25older_SomeCollegemore_2017'] <= 67.300000 ) {
+                return {
+                pane: 'pane_PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(94,57,152,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__P_f_25older_SomeCollegemore_2017'] >= 67.300000 && feature.properties['__P_f_25older_SomeCollegemore_2017'] <= 70.700000 ) {
+                return {
+                pane: 'pane_PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(63,0,125,1.0)',
+                interactive: false,
+            }
+            }
+        }
+        map.createPane('pane_PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5');
+        map.getPane('pane_PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5').style.zIndex = 405;
+        map.getPane('pane_PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5').style['mix-blend-mode'] = 'normal';
+        var layer_PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5 = new L.geoJson(json_PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5',
+            layerName: 'layer_PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5',
+            pane: 'pane_PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5',
+            onEachFeature: pop_PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5,
+            style: style_PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5_0,
+        });
+        bounds_group.addLayer(layer_PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5);
+        map.addLayer(layer_PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5);
+        function pop_PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STATE_NAME'] !== null ? Autolinker.link(String(feature.properties['STATE_NAME'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DRAWSEQ'] !== null ? Autolinker.link(String(feature.properties['DRAWSEQ'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STATE_FIPS'] !== null ? Autolinker.link(String(feature.properties['STATE_FIPS'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SUB_REGION'] !== null ? Autolinker.link(String(feature.properties['SUB_REGION'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STATE_ABBR'] !== null ? Autolinker.link(String(feature.properties['STATE_ABBR'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__State'] !== null ? Autolinker.link(String(feature.properties['__State'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__n_abortion_facilities_2017'] !== null ? Autolinker.link(String(feature.properties['__n_abortion_facilities_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Female_Pop_18_64'] !== null ? Autolinker.link(String(feature.properties['__Female_Pop_18_64'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__facilities_per_100000_females_18_64 _2017'] !== null ? Autolinker.link(String(feature.properties['__facilities_per_100000_females_18_64 _2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Facility_Score'] !== null ? Autolinker.link(String(feature.properties['__Facility_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Births_per_1000_f_15_19 _2018'] !== null ? Autolinker.link(String(feature.properties['__Births_per_1000_f_15_19 _2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Teen_Score'] !== null ? Autolinker.link(String(feature.properties['__Teen_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Total_Fertility_Rate_2017'] !== null ? Autolinker.link(String(feature.properties['__Total_Fertility_Rate_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Fertility_Score'] !== null ? Autolinker.link(String(feature.properties['__Fertility_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__TFR_white_2017'] !== null ? Autolinker.link(String(feature.properties['__TFR_white_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__TFR_black_2017'] !== null ? Autolinker.link(String(feature.properties['__TFR_black_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__TFR_Hispanic_2017'] !== null ? Autolinker.link(String(feature.properties['__TFR_Hispanic_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Range_Fertility_Race'] !== null ? Autolinker.link(String(feature.properties['__Range_Fertility_Race'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Range_Ethnicity_Score'] !== null ? Autolinker.link(String(feature.properties['__Range_Ethnicity_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__P_f_25older_SomeCollegemore_2017'] !== null ? Autolinker.link(String(feature.properties['__P_f_25older_SomeCollegemore_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Education_Score'] !== null ? Autolinker.link(String(feature.properties['__Education_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__p_pregnancies_ending_in_birth_2014'] !== null ? Autolinker.link(String(feature.properties['__p_pregnancies_ending_in_birth_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__p_pregnancies_wanted_later_or_unwanted_ending_in_abortion_2014'] !== null ? Autolinker.link(String(feature.properties['__p_pregnancies_wanted_later_or_unwanted_ending_in_abortion_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__P_pregnancies_unwanted_ending_in_birth_2014'] !== null ? Autolinker.link(String(feature.properties['__P_pregnancies_unwanted_ending_in_birth_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'] !== null ? Autolinker.link(String(feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Unintended_Score'] !== null ? Autolinker.link(String(feature.properties['__Unintended_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Intended_pregnancies_n_1000_women15_44_2014'] !== null ? Autolinker.link(String(feature.properties['__Intended_pregnancies_n_1000_women15_44_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Schools_one_health_ed_2014'] !== null ? Autolinker.link(String(feature.properties['__Schools_one_health_ed_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__School_Score'] !== null ? Autolinker.link(String(feature.properties['__School_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Pregnancy prevention'] !== null ? Autolinker.link(String(feature.properties['__Pregnancy prevention'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__How to access valid and reliable information, products, and services related to HIV, other STDs, and pregnancy'] !== null ? Autolinker.link(String(feature.properties['__How to access valid and reliable information, products, and services related to HIV, other STDs, and pregnancy'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Birthrate 2018'] !== null ? Autolinker.link(String(feature.properties['__Birthrate 2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__CompositeScore'] !== null ? Autolinker.link(String(feature.properties['__CompositeScore'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__State_Abbvr_1'] !== null ? Autolinker.link(String(feature.properties['__State_Abbvr_1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Clinic Density Ranking'] !== null ? Autolinker.link(String(feature.properties['__Clinic Density Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Teen Pregnancy Ranking'] !== null ? Autolinker.link(String(feature.properties['__Teen Pregnancy Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Ethnic Disparity Ranking'] !== null ? Autolinker.link(String(feature.properties['__Ethnic Disparity Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Female Education Ranking'] !== null ? Autolinker.link(String(feature.properties['__Female Education Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Unintended Pregnancy Ranking'] !== null ? Autolinker.link(String(feature.properties['__Unintended Pregnancy Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Total Fertility Ranking'] !== null ? Autolinker.link(String(feature.properties['__Total Fertility Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Health Education in Schools Ranking'] !== null ? Autolinker.link(String(feature.properties['__Health Education in Schools Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Composite Score Ranking'] !== null ? Autolinker.link(String(feature.properties['__Composite Score Ranking'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6_0(feature) {
+            if (feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'] >= 0.000000 && feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'] <= 34.000000 ) {
+                return {
+                pane: 'pane_PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(240,249,232,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'] >= 34.000000 && feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'] <= 36.000000 ) {
+                return {
+                pane: 'pane_PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(204,235,203,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'] >= 36.000000 && feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'] <= 38.000000 ) {
+                return {
+                pane: 'pane_PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(165,220,191,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'] >= 38.000000 && feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'] <= 39.000000 ) {
+                return {
+                pane: 'pane_PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(123,204,196,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'] >= 39.000000 && feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'] <= 42.000000 ) {
+                return {
+                pane: 'pane_PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(86,176,200,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'] >= 42.000000 && feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'] <= 45.000000 ) {
+                return {
+                pane: 'pane_PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(47,143,192,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'] >= 45.000000 && feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'] <= 48.000000 ) {
+                return {
+                pane: 'pane_PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(8,104,172,1.0)',
+                interactive: false,
+            }
+            }
+        }
+        map.createPane('pane_PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6');
+        map.getPane('pane_PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6').style.zIndex = 406;
+        map.getPane('pane_PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6').style['mix-blend-mode'] = 'normal';
+        var layer_PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6 = new L.geoJson(json_PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6',
+            layerName: 'layer_PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6',
+            pane: 'pane_PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6',
+            onEachFeature: pop_PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6,
+            style: style_PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6_0,
+        });
+        bounds_group.addLayer(layer_PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6);
+        map.addLayer(layer_PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6);
+        function pop_PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Teen_Score'] !== null ? Autolinker.link(String(feature.properties['__Teen_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Total_Fertility_Rate_2017'] !== null ? Autolinker.link(String(feature.properties['__Total_Fertility_Rate_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Fertility_Score'] !== null ? Autolinker.link(String(feature.properties['__Fertility_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__TFR_white_2017'] !== null ? Autolinker.link(String(feature.properties['__TFR_white_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__TFR_black_2017'] !== null ? Autolinker.link(String(feature.properties['__TFR_black_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__TFR_Hispanic_2017'] !== null ? Autolinker.link(String(feature.properties['__TFR_Hispanic_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Range_Fertility_Race'] !== null ? Autolinker.link(String(feature.properties['__Range_Fertility_Race'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Range_Ethnicity_Score'] !== null ? Autolinker.link(String(feature.properties['__Range_Ethnicity_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__P_f_25older_SomeCollegemore_2017'] !== null ? Autolinker.link(String(feature.properties['__P_f_25older_SomeCollegemore_2017'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Education_Score'] !== null ? Autolinker.link(String(feature.properties['__Education_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__p_pregnancies_ending_in_birth_2014'] !== null ? Autolinker.link(String(feature.properties['__p_pregnancies_ending_in_birth_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__p_pregnancies_wanted_later_or_unwanted_ending_in_abortion_2014'] !== null ? Autolinker.link(String(feature.properties['__p_pregnancies_wanted_later_or_unwanted_ending_in_abortion_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__P_pregnancies_unwanted_ending_in_birth_2014'] !== null ? Autolinker.link(String(feature.properties['__P_pregnancies_unwanted_ending_in_birth_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'] !== null ? Autolinker.link(String(feature.properties['__Pregnancies_wanted_later_or_unwanted_as_p_all_pregnancies_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Unintended_Score'] !== null ? Autolinker.link(String(feature.properties['__Unintended_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Intended_pregnancies_n_1000_women15_44_2014'] !== null ? Autolinker.link(String(feature.properties['__Intended_pregnancies_n_1000_women15_44_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Schools_one_health_ed_2014'] !== null ? Autolinker.link(String(feature.properties['__Schools_one_health_ed_2014'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__School_Score'] !== null ? Autolinker.link(String(feature.properties['__School_Score'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Pregnancy prevention'] !== null ? Autolinker.link(String(feature.properties['__Pregnancy prevention'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__How to access valid and reliable information, products, and services related to HIV, other STDs, and pregnancy'] !== null ? Autolinker.link(String(feature.properties['__How to access valid and reliable information, products, and services related to HIV, other STDs, and pregnancy'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Birthrate 2018'] !== null ? Autolinker.link(String(feature.properties['__Birthrate 2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__CompositeScore'] !== null ? Autolinker.link(String(feature.properties['__CompositeScore'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__State_Abbvr_1'] !== null ? Autolinker.link(String(feature.properties['__State_Abbvr_1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Clinic Density Ranking'] !== null ? Autolinker.link(String(feature.properties['__Clinic Density Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Teen Pregnancy Ranking'] !== null ? Autolinker.link(String(feature.properties['__Teen Pregnancy Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Ethnic Disparity Ranking'] !== null ? Autolinker.link(String(feature.properties['__Ethnic Disparity Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Female Education Ranking'] !== null ? Autolinker.link(String(feature.properties['__Female Education Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Unintended Pregnancy Ranking'] !== null ? Autolinker.link(String(feature.properties['__Unintended Pregnancy Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Total Fertility Ranking'] !== null ? Autolinker.link(String(feature.properties['__Total Fertility Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Health Education in Schools Ranking'] !== null ? Autolinker.link(String(feature.properties['__Health Education in Schools Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Composite Score Ranking'] !== null ? Autolinker.link(String(feature.properties['__Composite Score Ranking'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7_0(feature) {
+            if (feature.properties['__Schools_one_health_ed_2014'] >= 0.000000 && feature.properties['__Schools_one_health_ed_2014'] <= 18.200000 ) {
+                return {
+                pane: 'pane_PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(254,235,226,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Schools_one_health_ed_2014'] >= 18.200000 && feature.properties['__Schools_one_health_ed_2014'] <= 31.600000 ) {
+                return {
+                pane: 'pane_PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(252,199,199,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Schools_one_health_ed_2014'] >= 31.600000 && feature.properties['__Schools_one_health_ed_2014'] <= 36.700000 ) {
+                return {
+                pane: 'pane_PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(250,155,177,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Schools_one_health_ed_2014'] >= 36.700000 && feature.properties['__Schools_one_health_ed_2014'] <= 40.900000 ) {
+                return {
+                pane: 'pane_PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,104,161,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Schools_one_health_ed_2014'] >= 40.900000 && feature.properties['__Schools_one_health_ed_2014'] <= 45.000000 ) {
+                return {
+                pane: 'pane_PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(214,52,146,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Schools_one_health_ed_2014'] >= 45.000000 && feature.properties['__Schools_one_health_ed_2014'] <= 47.900000 ) {
+                return {
+                pane: 'pane_PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(172,18,132,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__Schools_one_health_ed_2014'] >= 47.900000 && feature.properties['__Schools_one_health_ed_2014'] <= 74.700000 ) {
+                return {
+                pane: 'pane_PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7',
+                opacity: 1,
+                color: 'rgba(170,170,170,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(122,1,119,1.0)',
+                interactive: false,
+            }
+            }
+        }
+        map.createPane('pane_PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7');
+        map.getPane('pane_PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7').style.zIndex = 407;
+        map.getPane('pane_PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7').style['mix-blend-mode'] = 'normal';
+        var layer_PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7 = new L.geoJson(json_PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7',
+            layerName: 'layer_PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7',
+            pane: 'pane_PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7',
+            onEachFeature: pop_PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7,
+            style: style_PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7_0,
+        });
+        bounds_group.addLayer(layer_PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7);
+        map.addLayer(layer_PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7);
+        function pop_OverallCompositeScoreforWomensReproductiveHealthandEducation_8(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STATE_NAME'] !== null ? Autolinker.link(String(feature.properties['STATE_NAME'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__CompositeScore'] !== null ? Autolinker.link(String(feature.properties['__CompositeScore'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Clinic Density Ranking'] !== null ? Autolinker.link(String(feature.properties['__Clinic Density Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Teen Pregnancy Ranking'] !== null ? Autolinker.link(String(feature.properties['__Teen Pregnancy Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Ethnic Disparity Ranking'] !== null ? Autolinker.link(String(feature.properties['__Ethnic Disparity Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Female Education Ranking'] !== null ? Autolinker.link(String(feature.properties['__Female Education Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Unintended Pregnancy Ranking'] !== null ? Autolinker.link(String(feature.properties['__Unintended Pregnancy Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Total Fertility Ranking'] !== null ? Autolinker.link(String(feature.properties['__Total Fertility Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['__Health Education in Schools Ranking'] !== null ? Autolinker.link(String(feature.properties['__Health Education in Schools Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">__Composite Score Ranking</th>\
+                        <td>' + (feature.properties['__Composite Score Ranking'] !== null ? Autolinker.link(String(feature.properties['__Composite Score Ranking'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_OverallCompositeScoreforWomensReproductiveHealthandEducation_8_0(feature) {
+            if (feature.properties['__CompositeScore'] >= 0.000000 && feature.properties['__CompositeScore'] <= 13.000000 ) {
+                return {
+                pane: 'pane_OverallCompositeScoreforWomensReproductiveHealthandEducation_8',
+                opacity: 1,
+                color: 'rgba(185,185,185,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__CompositeScore'] >= 13.000000 && feature.properties['__CompositeScore'] <= 18.000000 ) {
+                return {
+                pane: 'pane_OverallCompositeScoreforWomensReproductiveHealthandEducation_8',
+                opacity: 1,
+                color: 'rgba(185,185,185,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(241,124,74,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__CompositeScore'] >= 18.000000 && feature.properties['__CompositeScore'] <= 20.000000 ) {
+                return {
+                pane: 'pane_OverallCompositeScoreforWomensReproductiveHealthandEducation_8',
+                opacity: 1,
+                color: 'rgba(185,185,185,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(254,201,128,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__CompositeScore'] >= 20.000000 && feature.properties['__CompositeScore'] <= 23.000000 ) {
+                return {
+                pane: 'pane_OverallCompositeScoreforWomensReproductiveHealthandEducation_8',
+                opacity: 1,
+                color: 'rgba(185,185,185,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,191,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__CompositeScore'] >= 23.000000 && feature.properties['__CompositeScore'] <= 25.000000 ) {
+                return {
+                pane: 'pane_OverallCompositeScoreforWomensReproductiveHealthandEducation_8',
+                opacity: 1,
+                color: 'rgba(185,185,185,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(199,233,173,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__CompositeScore'] >= 25.000000 && feature.properties['__CompositeScore'] <= 30.000000 ) {
+                return {
+                pane: 'pane_OverallCompositeScoreforWomensReproductiveHealthandEducation_8',
+                opacity: 1,
+                color: 'rgba(185,185,185,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(128,191,172,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['__CompositeScore'] >= 30.000000 && feature.properties['__CompositeScore'] <= 34.000000 ) {
+                return {
+                pane: 'pane_OverallCompositeScoreforWomensReproductiveHealthandEducation_8',
+                opacity: 1,
+                color: 'rgba(185,185,185,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(43,131,186,1.0)',
+                interactive: false,
+            }
+            }
+        }
+        map.createPane('pane_OverallCompositeScoreforWomensReproductiveHealthandEducation_8');
+        map.getPane('pane_OverallCompositeScoreforWomensReproductiveHealthandEducation_8').style.zIndex = 408;
+        map.getPane('pane_OverallCompositeScoreforWomensReproductiveHealthandEducation_8').style['mix-blend-mode'] = 'normal';
+        var layer_OverallCompositeScoreforWomensReproductiveHealthandEducation_8 = new L.geoJson(json_OverallCompositeScoreforWomensReproductiveHealthandEducation_8, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_OverallCompositeScoreforWomensReproductiveHealthandEducation_8',
+            layerName: 'layer_OverallCompositeScoreforWomensReproductiveHealthandEducation_8',
+            pane: 'pane_OverallCompositeScoreforWomensReproductiveHealthandEducation_8',
+            onEachFeature: pop_OverallCompositeScoreforWomensReproductiveHealthandEducation_8,
+            style: style_OverallCompositeScoreforWomensReproductiveHealthandEducation_8_0,
+        });
+        bounds_group.addLayer(layer_OverallCompositeScoreforWomensReproductiveHealthandEducation_8);
+        map.addLayer(layer_OverallCompositeScoreforWomensReproductiveHealthandEducation_8);
+        function pop_Rankings_9(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STATE_NAME'] !== null ? Autolinker.link(String(feature.properties['STATE_NAME'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Clinic Density Ranking</th>\
+                        <td>' + (feature.properties['__Clinic Density Ranking'] !== null ? Autolinker.link(String(feature.properties['__Clinic Density Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Teen Pregnancy Ranking</th>\
+                        <td>' + (feature.properties['__Teen Pregnancy Ranking'] !== null ? Autolinker.link(String(feature.properties['__Teen Pregnancy Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Ethnic Disparity Ranking</th>\
+                        <td>' + (feature.properties['__Ethnic Disparity Ranking'] !== null ? Autolinker.link(String(feature.properties['__Ethnic Disparity Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Female Education Ranking</th>\
+                        <td>' + (feature.properties['__Female Education Ranking'] !== null ? Autolinker.link(String(feature.properties['__Female Education Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Unintended Pregnancy Ranking</th>\
+                        <td>' + (feature.properties['__Unintended Pregnancy Ranking'] !== null ? Autolinker.link(String(feature.properties['__Unintended Pregnancy Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Total Fertility Ranking</th>\
+                        <td>' + (feature.properties['__Total Fertility Ranking'] !== null ? Autolinker.link(String(feature.properties['__Total Fertility Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Health Education in Schools Ranking</th>\
+                        <td>' + (feature.properties['__Health Education in Schools Ranking'] !== null ? Autolinker.link(String(feature.properties['__Health Education in Schools Ranking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Composite Score Ranking</th>\
+                        <td>' + (feature.properties['__Composite Score Ranking'] !== null ? Autolinker.link(String(feature.properties['__Composite Score Ranking'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Rankings_9_0() {
+            return {
+                pane: 'pane_Rankings_9',
+                opacity: 1,
+                color: 'rgba(180,180,180,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1, 
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Rankings_9');
+        map.getPane('pane_Rankings_9').style.zIndex = 409;
+        map.getPane('pane_Rankings_9').style['mix-blend-mode'] = 'normal';
+        var layer_Rankings_9 = new L.geoJson(json_Rankings_9, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Rankings_9',
+            layerName: 'layer_Rankings_9',
+            pane: 'pane_Rankings_9',
+            onEachFeature: pop_Rankings_9,
+            style: style_Rankings_9_0,
+        });
+        bounds_group.addLayer(layer_Rankings_9);
+        map.addLayer(layer_Rankings_9);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/Rankings_9.png" /> Rankings': layer_Rankings_9,'Overall Composite Score for Women\'s Reproductive Health and Education<br /><table><tr><td style="text-align: center;"><img src="legend/OverallCompositeScoreforWomensReproductiveHealthandEducation_8_0130.png" /></td><td>0 - 13</td></tr><tr><td style="text-align: center;"><img src="legend/OverallCompositeScoreforWomensReproductiveHealthandEducation_8_13181.png" /></td><td>13 - 18</td></tr><tr><td style="text-align: center;"><img src="legend/OverallCompositeScoreforWomensReproductiveHealthandEducation_8_18202.png" /></td><td>18 - 20</td></tr><tr><td style="text-align: center;"><img src="legend/OverallCompositeScoreforWomensReproductiveHealthandEducation_8_20233.png" /></td><td>20 - 23</td></tr><tr><td style="text-align: center;"><img src="legend/OverallCompositeScoreforWomensReproductiveHealthandEducation_8_23254.png" /></td><td>23 - 25</td></tr><tr><td style="text-align: center;"><img src="legend/OverallCompositeScoreforWomensReproductiveHealthandEducation_8_25305.png" /></td><td>25 - 30</td></tr><tr><td style="text-align: center;"><img src="legend/OverallCompositeScoreforWomensReproductiveHealthandEducation_8_30346.png" /></td><td>30 - 34</td></tr></table>': layer_OverallCompositeScoreforWomensReproductiveHealthandEducation_8,'Percentage of Secondary Schools Requiring at Least One Health Course (2014)<br /><table><tr><td style="text-align: center;"><img src="legend/PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7_001820.png" /></td><td>0.0 - 18.2 %</td></tr><tr><td style="text-align: center;"><img src="legend/PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7_1823161.png" /></td><td>18.2 - 31.6 %</td></tr><tr><td style="text-align: center;"><img src="legend/PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7_3163672.png" /></td><td>31.6 - 36.7 %</td></tr><tr><td style="text-align: center;"><img src="legend/PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7_3674093.png" /></td><td>36.7 - 40.9 %</td></tr><tr><td style="text-align: center;"><img src="legend/PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7_4094504.png" /></td><td>40.9 - 45.0 %</td></tr><tr><td style="text-align: center;"><img src="legend/PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7_4504795.png" /></td><td>45.0 - 47.9 %</td></tr><tr><td style="text-align: center;"><img src="legend/PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7_4797476.png" /></td><td>47.9 - 74.7 %</td></tr></table>': layer_PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7,'Percentage of All Pregnancies Indicated as Unintended or Unwanted (2014)<br /><table><tr><td style="text-align: center;"><img src="legend/PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6_0340.png" /></td><td>0 - 34 %</td></tr><tr><td style="text-align: center;"><img src="legend/PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6_34361.png" /></td><td>34 - 36 %</td></tr><tr><td style="text-align: center;"><img src="legend/PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6_36382.png" /></td><td>36 - 38 %</td></tr><tr><td style="text-align: center;"><img src="legend/PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6_38393.png" /></td><td>38 - 39 %</td></tr><tr><td style="text-align: center;"><img src="legend/PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6_39424.png" /></td><td>39 - 42 %</td></tr><tr><td style="text-align: center;"><img src="legend/PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6_42455.png" /></td><td>42 - 45 %</td></tr><tr><td style="text-align: center;"><img src="legend/PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6_45486.png" /></td><td>45 - 48 %</td></tr></table>': layer_PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6,'Percentage of Female Population 25+ years with Some College or More (2017)<br /><table><tr><td style="text-align: center;"><img src="legend/PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5_005630.png" /></td><td>0.0 - 56.3 %</td></tr><tr><td style="text-align: center;"><img src="legend/PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5_5635951.png" /></td><td>56.3 - 59.5 %</td></tr><tr><td style="text-align: center;"><img src="legend/PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5_5956172.png" /></td><td>59.5 - 61.7 %</td></tr><tr><td style="text-align: center;"><img src="legend/PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5_6176343.png" /></td><td>61.7 - 63.4 %</td></tr><tr><td style="text-align: center;"><img src="legend/PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5_6346614.png" /></td><td>63.4 - 66.1 %</td></tr><tr><td style="text-align: center;"><img src="legend/PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5_6616735.png" /></td><td>66.1 - 67.3 %</td></tr><tr><td style="text-align: center;"><img src="legend/PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5_6737076.png" /></td><td>67.3 - 70.7 %</td></tr></table>': layer_PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5,'Range in Total Fertility Rates Between White, Black, and Hispanic Women (2017)<br /><table><tr><td style="text-align: center;"><img src="legend/RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4_03070.png" /></td><td>0 - 307</td></tr><tr><td style="text-align: center;"><img src="legend/RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4_3074001.png" /></td><td>307 - 400</td></tr><tr><td style="text-align: center;"><img src="legend/RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4_4005262.png" /></td><td>400 - 526</td></tr><tr><td style="text-align: center;"><img src="legend/RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4_5266463.png" /></td><td>526 - 646</td></tr><tr><td style="text-align: center;"><img src="legend/RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4_6469124.png" /></td><td>646 - 912</td></tr><tr><td style="text-align: center;"><img src="legend/RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4_91211115.png" /></td><td>912 - 1111</td></tr><tr><td style="text-align: center;"><img src="legend/RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4_111127226.png" /></td><td>1111 - 2722</td></tr></table>': layer_RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4,'Total Fertility Rate (2017)<br /><table><tr><td style="text-align: center;"><img src="legend/TotalFertilityRate2017_3_016300.png" /></td><td>0 - 1630</td></tr><tr><td style="text-align: center;"><img src="legend/TotalFertilityRate2017_3_163017311.png" /></td><td>1630 - 1731</td></tr><tr><td style="text-align: center;"><img src="legend/TotalFertilityRate2017_3_173117622.png" /></td><td>1731 - 1762</td></tr><tr><td style="text-align: center;"><img src="legend/TotalFertilityRate2017_3_176218043.png" /></td><td>1762 - 1804</td></tr><tr><td style="text-align: center;"><img src="legend/TotalFertilityRate2017_3_180418734.png" /></td><td>1804 - 1873</td></tr><tr><td style="text-align: center;"><img src="legend/TotalFertilityRate2017_3_187319275.png" /></td><td>1873 - 1927</td></tr><tr><td style="text-align: center;"><img src="legend/TotalFertilityRate2017_3_192722286.png" /></td><td>1927 - 2228</td></tr></table>': layer_TotalFertilityRate2017_3,'Births per 1000 women aged 15-19 years (2018)<br /><table><tr><td style="text-align: center;"><img src="legend/Birthsper1000womenaged1519years2018_2_001150.png" /></td><td>0.0 - 11.5</td></tr><tr><td style="text-align: center;"><img src="legend/Birthsper1000womenaged1519years2018_2_1151411.png" /></td><td>11.5 - 14.1</td></tr><tr><td style="text-align: center;"><img src="legend/Birthsper1000womenaged1519years2018_2_1411602.png" /></td><td>14.1 - 16.0</td></tr><tr><td style="text-align: center;"><img src="legend/Birthsper1000womenaged1519years2018_2_1601873.png" /></td><td>16.0 - 18.7</td></tr><tr><td style="text-align: center;"><img src="legend/Birthsper1000womenaged1519years2018_2_1872064.png" /></td><td>18.7 - 20.6</td></tr><tr><td style="text-align: center;"><img src="legend/Birthsper1000womenaged1519years2018_2_2062535.png" /></td><td>20.6 - 25.3</td></tr><tr><td style="text-align: center;"><img src="legend/Birthsper1000womenaged1519years2018_2_2533046.png" /></td><td>25.3 - 30.4</td></tr></table>': layer_Birthsper1000womenaged1519years2018_2,'Number of Women\'s Health Clinics per 100,000 Females aged 18-64 (2017)<br /><table><tr><td style="text-align: center;"><img src="legend/NumberofWomensHealthClinicsper100000Femalesaged18642017_1_0000440.png" /></td><td>0.00 - 0.44</td></tr><tr><td style="text-align: center;"><img src="legend/NumberofWomensHealthClinicsper100000Femalesaged18642017_1_0440541.png" /></td><td>0.44 - 0.54</td></tr><tr><td style="text-align: center;"><img src="legend/NumberofWomensHealthClinicsper100000Femalesaged18642017_1_0540872.png" /></td><td>0.54 - 0.87</td></tr><tr><td style="text-align: center;"><img src="legend/NumberofWomensHealthClinicsper100000Femalesaged18642017_1_0871153.png" /></td><td>0.87 - 1.15</td></tr><tr><td style="text-align: center;"><img src="legend/NumberofWomensHealthClinicsper100000Femalesaged18642017_1_1151874.png" /></td><td>1.15 - 1.87</td></tr><tr><td style="text-align: center;"><img src="legend/NumberofWomensHealthClinicsper100000Femalesaged18642017_1_1872685.png" /></td><td>1.87 - 2.68</td></tr><tr><td style="text-align: center;"><img src="legend/NumberofWomensHealthClinicsper100000Femalesaged18642017_1_2686556.png" /></td><td>2.68 - 6.55</td></tr></table>': layer_NumberofWomensHealthClinicsper100000Femalesaged18642017_1,"OpenStreetMap": layer_OpenStreetMap_0,},{collapsed:false}).addTo(map);
+        setBounds();
+        resetLabels([layer_NumberofWomensHealthClinicsper100000Femalesaged18642017_1,layer_Birthsper1000womenaged1519years2018_2,layer_TotalFertilityRate2017_3,layer_RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4,layer_PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5,layer_PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6,layer_PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7,layer_OverallCompositeScoreforWomensReproductiveHealthandEducation_8,layer_Rankings_9]);
+        map.on("zoomend", function(){
+            resetLabels([layer_NumberofWomensHealthClinicsper100000Femalesaged18642017_1,layer_Birthsper1000womenaged1519years2018_2,layer_TotalFertilityRate2017_3,layer_RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4,layer_PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5,layer_PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6,layer_PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7,layer_OverallCompositeScoreforWomensReproductiveHealthandEducation_8,layer_Rankings_9]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_NumberofWomensHealthClinicsper100000Femalesaged18642017_1,layer_Birthsper1000womenaged1519years2018_2,layer_TotalFertilityRate2017_3,layer_RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4,layer_PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5,layer_PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6,layer_PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7,layer_OverallCompositeScoreforWomensReproductiveHealthandEducation_8,layer_Rankings_9]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_NumberofWomensHealthClinicsper100000Femalesaged18642017_1,layer_Birthsper1000womenaged1519years2018_2,layer_TotalFertilityRate2017_3,layer_RangeinTotalFertilityRatesBetweenWhiteBlackandHispanicWomen2017_4,layer_PercentageofFemalePopulation25yearswithSomeCollegeorMore2017_5,layer_PercentageofAllPregnanciesIndicatedasUnintendedorUnwanted2014_6,layer_PercentageofSecondarySchoolsRequiringatLeastOneHealthCourse2014_7,layer_OverallCompositeScoreforWomensReproductiveHealthandEducation_8,layer_Rankings_9]);
+        });
+        </script>
+    </body>
+</html>
